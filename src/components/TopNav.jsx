@@ -27,7 +27,7 @@ export default function TopNav() {
 
   return (
     <>
-      <div className="h-[10vh] p-2 text-2xl relative text-primary flex justify-start items-center ml-[20%]">
+      <div className="h-[8vh] p-2 text-2xl relative text-primary flex justify-start items-center ml-[20%]">
         <i
           className={`ri-search-2-line hover:cursor-pointer hover:scale-110 ${
             !query && "invisible"
@@ -63,7 +63,7 @@ export default function TopNav() {
                       : noImg
                   }
                   alt="poster"
-                  className="w-[30%] h-36 object-contain rounded-md mr-5 hover:scale-105 cursor-pointer"
+                  className="w-[30%] h-36 object-contain rounded-md mr-5 hover:scale-105 duration-300 cursor-pointer shadow-md shadow-slate-700 hover:shadow-lg hover:shadow-slate-900"
                 />
                 <span className="text-lg text-gray-600 font-semibold hover:text-gray-900 duration-300 cursor-pointer">
                   {elm.title ||

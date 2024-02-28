@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import TopNav from "./TopNav";
 import { instance } from "../utils/aixios";
 import Header from "./Header";
+import TrendingMovies from "./TreandingMovies";
 
 export default function MainSpace() {
-
   const [wallpaper, setWallpaper] = useState(null);
 
   const headerWallpaper = async () => {
@@ -24,9 +24,10 @@ export default function MainSpace() {
   }, [wallpaper]);
 
   return (
-    <div className="w-[80%] h-full">
+    <div className="w-[80%] h-full overflow-x-auto">
       <TopNav />
-      <Header data={wallpaper}/>
+      <Header data={wallpaper} />
+      <TrendingMovies/>
     </div>
   );
 }

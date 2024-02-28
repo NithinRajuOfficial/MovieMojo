@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 export default function Header({ data }) {
   return (
-    <div className="w-full h-[60vh] relative">
+    <div className="w-full h-[56vh] relative">
       <img
         className="w-full h-full object-cover opacity-60"
         src={`https://image.tmdb.org/t/p/original/${

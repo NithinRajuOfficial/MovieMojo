@@ -1,15 +1,20 @@
+import React, { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import { Routes,Route } from "react-router-dom"
-import Home from "./components/Home"
+const Home = lazy(() => import("./components/Home"));
+const Trending = lazy(() => import("./components/Trending"));
 
 function App() {
- return(
-  <div className="w-screen h-screen bg-mainBg">
-  <Routes>
-    <Route path="/" element={<Home/>}/>
-  </Routes>
-  </div>
- )
+  return (
+    <div className="w-screen h-screen bg-mainBg">
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/trending" element={<Trending />} />
+        </Routes>
+      </React.Suspense>
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -4,11 +4,16 @@
 
 
 ::-webkit-scrollbar{
-    width: 5px;
-    height: 5px;
+    width: 7px;
+    height: 7px;
 }
 
 ::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.303);
     border-radius: 10px;
 }
+::-webkit-scrollbar-thumb:hover{
+    background-color:#6556CD;
+}
+
+

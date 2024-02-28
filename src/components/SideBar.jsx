@@ -14,7 +14,7 @@ export default function SideBar() {
         <h2 className="text-2xl font-normal text-primary mt-10 mb-5">
           News Feed
         </h2>
-        <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
+        <Link to={"/trending"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-fire-line mr-1"></i>Trending
         </Link>
         <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
