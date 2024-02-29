@@ -20,7 +20,12 @@ export default function Header({ data }) {
         </h1>
         <p className="max-w-[50%] text-md font-light text-gray-300 mb-1">
           {data?.overview.slice(0, 250)}
-          <Link className="text-blue-400 text-sm font-semibold">...more</Link>
+          <Link
+            to={`/trending/${data?.media_type}/details/${data?.id}`}
+            className="text-blue-400 text-sm font-semibold"
+          >
+            ...more
+          </Link>
         </p>
         <div className="flex gap-5">
           <small className="flex text-md font-semibold mb-4 text-purple-50">
@@ -36,7 +41,7 @@ export default function Header({ data }) {
             {data?.original_language.toUpperCase()}
           </small>
         </div>
-        <Link className=" text-gray-600 px-2 py-1 font-bold rounded-lg bg-gradient-to-r from-indigo-400 from-10% via-sky-500 via-30% to-emerald-500 to-90% border-2 border-">
+        <Link className=" text-gray-600 px-2 py-1 font-bold rounded-lg bg-gradient-to-r from-indigo-900 from-10% via-sky-200 via-30% to-emerald-200 to-90% border-2 border-">
           Watch Trailer
         </Link>
       </div>

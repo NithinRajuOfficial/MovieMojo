@@ -17,16 +17,16 @@ export default function SideBar() {
         <Link to={"/trending"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-fire-line mr-1"></i>Trending
         </Link>
-        <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
+        <Link to={"/popular"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-bard-line mr-2"></i>Popular
         </Link>
-        <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
+        <Link to={"/movies"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-movie-2-line mr-2"></i>Movies
         </Link>
-        <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
+        <Link to={"tv_shows"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-tv-2-line mr-2"></i>Tv Shows
         </Link>
-        <Link className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
+        <Link to={"/peoples"} className="hover:bg-secondary hover:scale-105 rounded-lg duration-300 p-2 mb-1">
           <i className="ri-team-line mr-2"></i>People
         </Link>
       </nav>

@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 export default function HorizontalCard({ data }) {
   return (
-    <div className="flex-shrink-0 w-[17%] rounded-lg overflow-hidden shadow-2xl bg-zinc-900">
+    <Link
+      to={`/trending/${data?.media_type}/details/${data?.id}`}
+      className="flex-shrink-0 w-[17%] rounded-lg overflow-hidden shadow-2xl bg-zinc-900"
+    >
       <img
         className="h-[50%] object-cover mb-1 hover:scale-105 duration-300 hover:cursor-pointer"
         src={`https://image.tmdb.org/t/p/original/${
@@ -9,6 +14,7 @@ export default function HorizontalCard({ data }) {
         }`}
         alt=""
       />
+      {console.log(data)}
       <div className="p-2 h-[50%]">
         <h1 className="font-semibold text-gray-200 hover:cursor-pointer">
           {data?.title ||
@@ -21,6 +27,6 @@ export default function HorizontalCard({ data }) {
           <span className="text-zinc-600 text-sm font-semibold">...more</span>
         </small>
       </div>
-    </div>
+    </Link>
   );
 }

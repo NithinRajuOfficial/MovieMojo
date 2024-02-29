@@ -19,9 +19,7 @@ export default function TrendingMovies() {
   };
 
   useEffect(() => {
-    console.log(category);
     getTrendingMovies();
-    console.log(trendingMovies);
   }, [category]);
 
   return (

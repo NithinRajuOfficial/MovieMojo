@@ -49,30 +49,44 @@ export default function TopNav() {
         )}
         <div className="w-[50%] max-h-[50vh] bg-gray-200 absolute top-[100%] rounded-sm overflow-auto z-10">
           {searchData &&
-            searchData.map((elm) => (
-              <Link
-                key={elm.id}
-                className="bg-gray-300 w-[100%] p-6 flex justify-start items-center border-b-2 border-gray-400 cursor-default"
-              >
-                <img
-                  src={
-                    elm.poster_path || elm.profile_path
-                      ? `https://image.tmdb.org/t/p/original/${
-                          elm.poster_path || elm.profile_path
-                        }`
-                      : noImg
-                  }
-                  alt="poster"
-                  className="w-[30%] h-36 object-contain rounded-md mr-5 hover:scale-105 duration-300 cursor-pointer shadow-md shadow-slate-700 hover:shadow-lg hover:shadow-slate-900"
-                />
-                <span className="text-lg text-gray-600 font-semibold hover:text-gray-900 duration-300 cursor-pointer">
-                  {elm.title ||
-                    elm.name ||
-                    elm.original_name ||
-                    elm.original_title}
-                </span>
-              </Link>
-            ))}
+            searchData.map((elm) => {
+              let prefix = "";
+              if (elm.media_type.includes("tv")) {
+                prefix = "tv_shows";
+              } else if (elm.media_type.includes("movie")) {
+                prefix = "popular";
+              
+              } else if (elm.media_type.includes("trending")) {
+                prefix = "trending";
+              } else if (elm.media_type.includes("person")) {
+                prefix = "peoples";
+              }
+              return (
+                <Link
+                  to={`${prefix}/${elm.media_type}/details/${elm.id}`}
+                  key={elm.id}
+                  className="bg-gray-300 w-[100%] p-6 flex justify-start items-center border-b-2 border-gray-400 cursor-default"
+                >
+                  <img
+                    src={
+                      elm.poster_path || elm.profile_path
+                        ? `https://image.tmdb.org/t/p/original/${
+                            elm.poster_path || elm.profile_path
+                          }`
+                        : noImg
+                    }
+                    alt="poster"
+                    className="w-[30%] h-36 object-contain rounded-md mr-5 hover:scale-105 duration-300 cursor-pointer shadow-md shadow-slate-700 hover:shadow-lg hover:shadow-slate-900"
+                  />
+                  <span className="text-lg text-gray-600 font-semibold hover:text-gray-900 duration-300 cursor-pointer">
+                    {elm.title ||
+                      elm.name ||
+                      elm.original_name ||
+                      elm.original_title}
+                  </span>
+                </Link>
+              );
+            })}
         </div>
       </div>
     </>
