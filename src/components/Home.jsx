@@ -5,7 +5,7 @@ const SideBar = lazy(() => import("./SideBar"));
 
 export default function Home() {
   return (
-    <div className="h-[100%] flex scroll-smooth">
+    <div className="h-screen flex scroll-smooth">
       <SideBar />
       <MainSpace />
     </div>

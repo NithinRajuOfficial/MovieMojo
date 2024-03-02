@@ -6,11 +6,12 @@ const DynamicListPageCom = lazy(() =>
   import("./components/DynamicListPageCom")
 );
 const Details = lazy(() => import("./components/Details"));
-
+import Loader from "./utils/Loader";
+import PersonDetails from "./components/personDetails";
 function App() {
   return (
-    <div className="w-screen h-screen bg-mainBg">
-      <React.Suspense fallback={<div className="bg-red-400">Loading...</div>}>
+    <div className="w-screen  bg-mainBg">
+      <React.Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -53,7 +54,7 @@ function App() {
               />
             }
           />
-          <Route path="/peoples/:name/details/:id" element={<Details />} />
+          <Route path="/peoples/:name/details/:id" element={<PersonDetails />} />
         </Routes>
       </React.Suspense>
     </div>

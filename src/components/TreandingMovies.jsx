@@ -32,7 +32,7 @@ export default function TrendingMovies() {
           func={(e) => setCategory(e.target.value)}
         />
       </div>
-      <div className="w-full flex gap-3 overflow-x-scroll">
+      <div className="w-full flex gap-3 overflow-x-scroll overflow-y-hidden">
         {trendingMovies &&
           trendingMovies.map((elm) => <MovieCard key={elm.id} data={elm} />)}
       </div>

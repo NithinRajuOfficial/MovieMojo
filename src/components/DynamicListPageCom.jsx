@@ -47,7 +47,7 @@ export default function Trending({ val, initialCat, rating }) {
     return (
       (pageData[0]?.name.includes("tv") && "tv") ||
       (pageData[0]?.name.includes("movie") && "movie") ||
-      (pageData[0]?.name.includes("people") && "people") ||
+      (pageData[0]?.name.includes("people") && "person") ||
       category
     );
   }, [pageData, category]);

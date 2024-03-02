@@ -2,39 +2,39 @@
 import { instance } from "../../utils/aixios";
 import { loadMovieData } from "../reducers/movieSlice";
 
-export const asyncLoadMovie = async (id,dispatch) => {
+export const asyncLoadMovie = async (id, dispatch, name) => {
   try {
-    const { data: details } = await instance.get(`/movie/${id}`);
+    const { data: details } = await instance.get(`/${name}/${id}`);
     const { data: externalIds } = await instance.get(
-      `/movie/${id}/external_ids`
+      `/${name}/${id}/external_ids`
     );
     const {
       data: { results: recommendations },
-    } = await instance.get(`/movie/${id}/recommendations`);
+    } = await instance.get(`/${name}/${id}/recommendations`);
     const {
       data: { results: similar },
-    } = await instance.get(`/movie/${id}/similar`);
+    } = await instance.get(`/${name}/${id}/similar`);
     const {
-        data: { translations },
-      } = await instance.get(`/movie/${id}/translations`);
+      data: { translations },
+    } = await instance.get(`/${name}/${id}/translations`);
     const {
       data: { results: videos },
-    } = await instance.get(`/movie/${id}/videos`);
+    } = await instance.get(`/${name}/${id}/videos`);
     const {
       data: { results: watchProviders },
-    } = await instance.get(`/movie/${id}/watch/providers`);
+    } = await instance.get(`/${name}/${id}/watch/providers`);
 
     const ultimateData = {
-        details,
-        externalIds,
-        recommendations,
-        similar,
-        translations,
-        videos : videos.find(v => v.type === "Trailer"),
-        watchProviders: watchProviders.IN
-    }
-    console.log(ultimateData)
-    dispatch(loadMovieData(ultimateData))
+      details,
+      externalIds,
+      recommendations,
+      similar,
+      translations,
+      videos: videos.find((v) => v.type === "Trailer" || "Teaser"),
+      watchProviders: watchProviders.IN,
+    };
+    console.log(ultimateData, "pppp");
+    dispatch(loadMovieData(ultimateData));
   } catch (error) {
     console.error("Failed to get the movie details ERROR:", error);
   }

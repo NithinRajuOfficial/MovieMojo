@@ -5,6 +5,10 @@ import "./index.css";
 import "remixicon/fonts/remixicon.css";
 import { store } from "./store/store.jsx";
 import { Provider } from "react-redux";
+import Modal from 'react-modal';
+
+// Set the app element for react-modal
+Modal.setAppElement('#root');
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
