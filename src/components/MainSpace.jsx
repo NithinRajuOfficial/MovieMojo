@@ -24,7 +24,7 @@ export default function MainSpace() {
   }, [wallpaper]);
 
   return (
-    <div className="w-[80%] h-full overflow-x-auto">
+    <div className="w-[100%] md:w-[80%] h-full overflow-x-auto">
       <TopNav />
       <Header data={wallpaper} />
       <TrendingMovies/>

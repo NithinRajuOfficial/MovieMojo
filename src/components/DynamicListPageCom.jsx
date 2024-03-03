@@ -86,7 +86,7 @@ export default function Trending({ val, initialCat, rating }) {
               pageData[0]?.name.slice(1)}
           </h1>
         </div>
-        <div className="w-full flex justify-end items-center gap-2">
+        <div className="w-full flex justify-end items-center gap-2 ">
           <span className="w-full">
             <TopNav />
           </span>

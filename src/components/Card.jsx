@@ -12,13 +12,14 @@ export default function Card({ data, isRated, title }) {
           className=" relative w-[15%]  h-[40vh] mb-32"
         >
           <img
-            className=" min-h-[45vh] hover:scale-105 rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300 hover:shadow-purple-600"
-            src={`https://image.tmdb.org/t/p/original/${
-              elm?.poster_path ||
-              elm?.profile_path ||
-              elm?.backdrop_path ||
-              noImg
-            }`}
+            className=" min-h-[45vh] hover:scale-105 object-cover rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300 hover:shadow-purple-600"
+            src={
+              elm?.backdrop_path || elm?.profile_path || elm?.poster_path
+                ? `https://image.tmdb.org/t/p/original/${
+                  elm?.backdrop_path || elm?.profile_path || elm?.poster_path
+                  }`
+                : noImg
+            }
             alt="poster img"
           />
           <h1 className="font-bold text-xl text-primary mt-2">

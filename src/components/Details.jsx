@@ -45,8 +45,8 @@ export default function Details() {
           }}
           className={`w-screen ${
             pathname.includes("tv") && info?.recommendations.length > 0
-              ? "h-[160vh]"
-              : "h-[130vh]"
+              ? "h-[170vh]"
+              : "h-[140vh]"
           } opacity-80 px-[10%] py-[2%] bg-mainBg`}
         >
           <nav className="flex justify-start items-center gap-10 text-white text-3xl">

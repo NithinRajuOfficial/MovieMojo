@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { instance } from "../utils/aixios";
 import { noImg } from "../assets/constants.js";
+import { useDispatch } from "react-redux";
+import { isSideBar } from "../store/reducers/SidebarSlice.jsx";
 
 export default function TopNav() {
   const [query, setQuery] = useState("");
   const [searchData, setSearchData] = useState(null);
-
+  const dispatch = useDispatch()
   const handleSearch = async () => {
     try {
       const { data } = await instance.get(`/search/multi?query=${query}`);
@@ -25,9 +27,12 @@ export default function TopNav() {
     setSearchData("");
   };
 
+  const openDrawer = () => dispatch(isSideBar(true));
+
   return (
     <>
-      <div className="h-[8vh] p-2 text-2xl relative text-primary flex justify-start items-center ml-[20%]">
+      <div className="h-[8vh] p-2 text-2xl relative text-primary flex justify-start items-center md:ml-[20%]">
+      <i className="ri-menu-3-line md:invisible self-center hover:cursor-pointer ml-2 mr-10" onClick={openDrawer}></i>
         <i
           className={`ri-search-2-line hover:cursor-pointer hover:scale-110 ${
             !query && "invisible"
@@ -39,7 +44,7 @@ export default function TopNav() {
           value={query}
           type="text"
           placeholder="Search here..."
-          className="w-[50%] p-4 text-xl  outline-none border-none bg-transparent"
+          className="md:w-[50%] w-[70%] p-4 text-xl  outline-none border-none bg-transparent"
         />
         {query && (
           <i
@@ -47,7 +52,7 @@ export default function TopNav() {
             onClick={handleClose}
           ></i>
         )}
-        <div className="w-[50%] max-h-[50vh] bg-gray-200 absolute top-[100%] rounded-sm overflow-auto z-10">
+        <div className="md:w-[50%] w-[96%] max-h-[50vh] bg-gray-200 absolute top-[100%] rounded-sm overflow-auto z-10">
           {searchData &&
             searchData.map((elm) => {
               let prefix = "";

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 export default function Header({ data }) {
+  console.log(data,"lll")
   return (
     <div className="w-full h-[56vh] relative">
       <img
@@ -41,7 +42,7 @@ export default function Header({ data }) {
             {data?.original_language.toUpperCase()}
           </small>
         </div>
-        <Link className=" text-gray-600 px-2 py-1 font-bold rounded-lg bg-gradient-to-r from-indigo-900 from-10% via-sky-200 via-30% to-emerald-200 to-90% border-2 border-">
+        <Link to={`/trending/${data?.media_type}/details/${data?.id}`} className=" text-gray-600 px-2 py-1 font-bold rounded-lg bg-gradient-to-r from-indigo-900 from-10% via-sky-200 via-30% to-emerald-200 to-90% border-2 border-">
           Watch Trailer
         </Link>
       </div>
