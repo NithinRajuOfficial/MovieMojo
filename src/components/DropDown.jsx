@@ -12,11 +12,11 @@ export default function DropDown({ title, options, func }) {
         unmount: { scale: 0, y: 25 },
       }}
     >
-      <div className="w-[12%] mt-1 mb-1 text-primary relative ">
+      <div className="w-28 sm:w-[12%] mt-1 mb-1 text-primary relative">
         <select
           defaultValue="0"
           onChange={func}
-          className="w-full px-1 py-1 text-sm bg-gray-700 rounded-lg appearance-none  focus:outline-none "
+          className="w-full px-2 py-0.5 text-sm bg-gray-700 rounded-lg appearance-none  focus:outline-none "
         >
           {options?.map((elm, i) => (
             <option key={i} value={elm} className="text-xs font-thin">

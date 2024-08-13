@@ -15,8 +15,8 @@ const customStyles = {
     border: "none",
     color: "white",
     borderRadius: "8px",
-    width: "80%",
-    height: "80%",
+    width: "100%",
+    height: "100%",
   },
 };
 

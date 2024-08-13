@@ -32,7 +32,7 @@ export default function TopNav() {
   return (
     <>
       <div className="h-[8vh] p-2 text-2xl relative text-primary flex justify-start items-center md:ml-[20%]">
-      <i className="ri-menu-3-line md:invisible self-center hover:cursor-pointer ml-2 mr-10" onClick={openDrawer}></i>
+      <i className="ri-menu-3-line md:invisible self-center hover:cursor-pointer sm:ml-2 sm:mr-10" onClick={openDrawer}></i>
         <i
           className={`ri-search-2-line hover:cursor-pointer hover:scale-110 ${
             !query && "invisible"
@@ -44,7 +44,7 @@ export default function TopNav() {
           value={query}
           type="text"
           placeholder="Search here..."
-          className="md:w-[50%] w-[70%] p-4 text-xl  outline-none border-none bg-transparent"
+          className="md:w-[50%] w-[70%] sm:p-4 text-xl  outline-none border-none bg-transparent"
         />
         {query && (
           <i

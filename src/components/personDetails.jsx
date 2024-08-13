@@ -18,18 +18,15 @@ export default function PersonDetails() {
     asyncLoadPerson(id, dispatch);
     return () => dispatch(removePersonData());
   }, [id]);
-  console.log(info, "///");
 
   return (
     <>
       {info ? (
         <div
-          className={`w-screen ${
-            info?.details?.biography.length > 400 ? "h-[150vh]" : "h-[140vh]"
-          } opacity-80 px-[10%] py-[2%] bg-mainBg`}
+          className={`w-screen h-auto opacity-80 px-[10%] py-[2%] bg-mainBg`}
         >
           {/* navbar*/}
-          <nav className="flex justify-start items-center gap-10 text-primary text-3xl">
+          <nav className="flex justify-start items-center gap-10 text-primary text-xl sm:text-3xl">
             <Link href="" className=" hover:cursor-pointer hover:scale-110">
               <i
                 className="ri-arrow-left-double-line"
@@ -46,10 +43,10 @@ export default function PersonDetails() {
           </nav>
 
           {/* profile details */}
-          <div className="flex mt-10 gap-14 ">
-            <div className="w-[20%]">
+          <div className="flex flex-col sm:flex-row mt-10 gap-14 ">
+            <div className="sm:w-[20%]">
               <img
-                className="w-full h-[44vh] object-fit rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300"
+                className="w-full h-auto object-fit rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300"
                 src={`https://image.tmdb.org/t/p/original/${
                   info?.details?.poster_path || info?.details?.profile_path
                 }`}
@@ -120,7 +117,7 @@ export default function PersonDetails() {
             </div>
 
             {/* right side user details */}
-            <div className="w-[80%] text-primary">
+            <div className="w-auto sm:w-[80%] text-primary">
               <h1 className="text-4xl font-bold mb-4">{info?.details?.name}</h1>
               <h2 className="text-xl font-semibold mb-1">Biography</h2>
               <p className="text-sm mb-5">{info?.details?.biography}</p>

@@ -25,7 +25,7 @@ export default function TrendingMovies() {
   return (
     <div className="w-full  px-3 py-1">
       <div className="flex justify-between">
-        <h1 className="text-primary text-2xl font-semibold mb-1">Trending</h1>
+        <h1 className="text-primary text-lg sm:text-2xl font-semibold mb-1">Trending</h1>
         <DropDown
           title={"Filter"}
           options={["tv", "movie", "all"]}

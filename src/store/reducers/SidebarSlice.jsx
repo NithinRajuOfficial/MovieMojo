@@ -9,7 +9,6 @@ export const SideBarSlice = createSlice({
   initialState,
   reducers: {
     isSideBar: (state, action) => {
-      console.log("came",action,state)
       state.open = action.payload;
     },
     removeSideBar: (state) => {

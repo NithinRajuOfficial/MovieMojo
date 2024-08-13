@@ -33,7 +33,6 @@ export const asyncLoadMovie = async (id, dispatch, name) => {
       videos: videos.find((v) => v.type === "Trailer" || "Teaser"),
       watchProviders: watchProviders.IN,
     };
-    console.log(ultimateData, "pppp");
     dispatch(loadMovieData(ultimateData));
   } catch (error) {
     console.error("Failed to get the movie details ERROR:", error);

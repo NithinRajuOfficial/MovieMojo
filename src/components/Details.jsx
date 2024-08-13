@@ -43,13 +43,9 @@ export default function Details() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
-          className={`w-screen ${
-            pathname.includes("tv") && info?.recommendations.length > 0
-              ? "h-[170vh]"
-              : "h-[140vh]"
-          } opacity-80 px-[10%] py-[2%] bg-mainBg`}
+          className={`w-screen opacity-80 px-[10%] py-[2%] bg-mainBg`}
         >
-          <nav className="flex justify-start items-center gap-10 text-white text-3xl">
+          <nav className="flex justify-start items-center gap-10 text-white text-xl sm:text-3xl">
             <Link href="" className=" hover:cursor-pointer hover:scale-110">
               <i
                 className="ri-arrow-left-double-line"
@@ -79,20 +75,20 @@ export default function Details() {
             </a>
           </nav>
 
-          <div className="flex gap-20">
-            <div className=" max-w-[20%] flex flex-col  items-start py-14 ">
+          <div className="flex flex-col sm:flex-row sm:gap-20">
+            <div className="sm:max-w-[20%] flex flex-col items-start py-14 ">
               <img
                 className=" min-w-[50%] min-h-[50%] rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300"
                 src={`https://image.tmdb.org/t/p/original/${info?.details?.poster_path}`}
                 alt="poster img"
               />
               {info?.watchProviders?.flatrate && (
-                <div className="flex w-[80%] items-center gap-4 md:text-2xl text:md text-white mt-4">
-                  <h1>Available On</h1>
+                <div className="flex justify-center items-center gap-4 text-white mt-4">
+                  <h1 className="text-sm">Available On</h1>
                   {info?.watchProviders?.flatrate?.map((elm, i) => (
                     <img
                       key={i}
-                      className=" w-[20%] md:rounded-lg rounded-sm"
+                      className=" w-[12%] sm:w-[16%]  sm:rounded-lg rounded-lg"
                       src={`https://image.tmdb.org/t/p/original/${elm?.logo_path}`}
                       alt="logo"
                     />
@@ -102,26 +98,27 @@ export default function Details() {
             </div>
 
             {/* right side  */}
-            <div className="py-14 text-white">
-              <div className="flex items-end">
-                <h1 className="font-extrabold text-5xl ">
+            <div className="sm:py-14 text-white">
+              <div className="">
+                <h1 className="font-extrabold text-3xl sm:text-5xl ">
                   {info?.details?.title ||
                     info?.details?.name ||
                     info?.details?.original_name ||
                     info?.details?.original_title}
-                </h1>
-
-                <span className="text-2xl font-semibold ml-1">
+                    <span className="text-lg sm:text-2xl font-semibold ml-1">
                   (
                   {info?.details?.release_date?.slice(0, 4) ||
                     info?.details?.first_air_date?.slice(0, 4)}
                   )
                 </span>
+                </h1>
+
+                
               </div>
 
-              <div className="flex items-center gap-5 font-semibold">
+              <div className="flex items-center gap-3 sm:gap-5 font-semibold">
                 <div
-                  className={`text-xl text-black font-semibold bg-yellow-500 w-12 h-12 text-center rounded-full flex justify-center items-center  border-2 border-gray-100 mt-4 "}`}
+                  className={`text-xl text-black font-semibold bg-yellow-500 h-9 w-12 sm:h-12 text-center rounded-full flex justify-center items-center  border-2 border-gray-100 mt-4 "}`}
                 >
                   <h1>
                     {(
@@ -130,32 +127,32 @@ export default function Details() {
                     <sup className="text-xs">%</sup>
                   </h1>
                 </div>
-                <span className="font-semibold text-xl mt-2">
+                <span className="font-semibold text-xs sm:text-xl mt-2">
                   {info?.details?.release_date || info?.details?.first_air_date}
                 </span>
                 <div>
                   {info?.details?.genres?.map((elm) => (
-                    <span className="mr-4 text-xl" key={elm.id + 1}>
+                    <span className="mr-2 sm:mr-4 text-sm sm:text-xl" key={elm.id + 1}>
                       {elm.name}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <h1 className="text-xl font-bold mt-4 mb-4 text-white">
+              <h1 className="text-lg sm:text-xl font-bold mt-4 mb-4 text-white">
                 {info?.details?.tagline}
               </h1>
-              <h1 className="text-3xl mt-8">Overview</h1>
-              <h1 className="text-md">{info?.details?.overview}</h1>
-              <h1 className="text-3xl mt-3">Languages</h1>
-              <div className="flex flex-wrap gap-2 text-md">
+              <h1 className="text-2xl sm:text-3xl mt-4 sm:mt-8">Overview</h1>
+              <h1 className="text-base">{info?.details?.overview}</h1>
+              <h1 className="text-2xl sm:text-3xl mt-3">Languages</h1>
+              <div className="flex flex-wrap gap-2 text-base">
                 {info?.translations?.map((elm) => (
                   <span key={elm.iso_639_1 + 1}>{elm.english_name}</span>
                 ))}
               </div>
               {info?.videos && (
                 <button
-                  className="p-2 mt-2 text-xl bg-secondary rounded-lg hover:scale-105 border-2 duration-300"
+                  className="px-2 py-1 mt-2 mb-2 sm:mb-0 text-base sm:text-xl bg-secondary rounded-lg hover:scale-105 border-2 duration-300"
                   onClick={toggleModal}
                 >
                   <i className="ri-play-fill"></i>Play Trailer
@@ -225,3 +222,13 @@ export default function Details() {
     </>
   );
 }
+
+
+
+
+// className={`w-screen ${
+//   pathname.includes("tv") && info?.recommendations.length > 0
+//     ? "h-[170vh]"
+//     : "h-[140vh]"
+// } opacity-80 px-[10%] py-[2%] bg-mainBg`}
+// >

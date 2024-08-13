@@ -9,7 +9,7 @@ export default function Card({ data, isRated, title }) {
         <Link
           to={`${data.media_type || title}/details/${elm.id}`}
           key={i}
-          className=" relative w-[15%]  h-[40vh] mb-32"
+          className=" relative w-[80%] sm:w-[15%]  h-[40vh] mb-32"
         >
           <img
             className=" min-h-[45vh] hover:scale-105 object-cover rounded-lg border-2 hover:border-gray-700 border-gray-900   shadow-2xl duration-300 hover:shadow-purple-600"

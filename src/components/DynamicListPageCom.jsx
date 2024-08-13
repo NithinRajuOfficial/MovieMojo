@@ -14,6 +14,7 @@ export default function Trending({ val, initialCat, rating }) {
   const [current, setCurrent] = useState([]);
   const [pageNo, setPageNo] = useState(1);
 
+
   const pageData = React.useMemo(() => {
     return [
       {
@@ -75,8 +76,8 @@ export default function Trending({ val, initialCat, rating }) {
       id="scrollableDiv"
       className="w-screen h-screen px-4 z-10 overflow-y-auto scroll-smooth "
     >
-      <div className="w-full min-h-[10vh] flex sticky top-0 bg-[#1F1E24] z-10">
-        <div className="flex items-center justify-center">
+      <div className="py-4 w-full min-h-[10vh] flex flex-col sm:flex-row sticky top-0 bg-[#1F1E24] z-10">
+        <div className="flex items-center sm:justify-center">
           <i
             className="ri-arrow-left-double-line text-gray-500 text-3xl font-semibold mt-2 hover:text-secondary hover:cursor-pointer hover:scale-110"
             onClick={() => navigate(-1)}
@@ -90,11 +91,11 @@ export default function Trending({ val, initialCat, rating }) {
           <span className="w-full">
             <TopNav />
           </span>
-          <DropDown
+         {pageData[0]?.name !== "people's" &&  <DropDown
             title={"Filter"}
             options={pageData[0]?.options}
             func={(e) => setCategory(e.target.value)}
-          />
+          />}
           <DropDown
             title={"Duration"}
             options={["week", "day"]}
@@ -109,7 +110,7 @@ export default function Trending({ val, initialCat, rating }) {
         next={() => getCurrentData(true)}
         scrollableTarget="scrollableDiv"
       >
-        <div className="w-full mt-10 flex ml-2 flex-wrap gap-7 bg-[#1F1E24]">
+        <div className="w-full mt-10 flex justify-center items-center flex-wrap flex-col sm:flex-row  gap-9 bg-[#1F1E24]">
           <Card data={current} isRated={rating} title={title} />
         </div>
       </InfiniteScroll>
